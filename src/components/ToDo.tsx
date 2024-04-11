@@ -1,8 +1,6 @@
 import { useState } from "react";
-import deleteTask from "../services/deleteTask";
 import moveTaskUp from "../services/moveTaskUp";
 import moveTaskDown from "../services/moveTaskDown";
-import addTask from "../services/addTask";
 
 const ToDo = () => {
   const [tasks, setTasks] = useState([
@@ -11,6 +9,15 @@ const ToDo = () => {
     "walk the dog",
   ]);
   const [newTask, setNewTask] = useState("");
+
+  const addTask = () => {
+    if (newTask.trim() !== "") {
+      setTasks((task) => [...task, newTask]);
+      setNewTask("");
+    }
+  };
+
+  const deleteTask = (task: number) => {};
 
   return (
     <div className="to-do-list">
