@@ -71,3 +71,7 @@ li{
     font-size: 1.4rem;
     margin-left: 10px;
 }
+
+.chechBox{
+    transform: scale(2)
+}

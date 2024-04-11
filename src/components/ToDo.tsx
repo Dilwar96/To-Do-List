@@ -1,4 +1,4 @@
-import { useDebugValue, useState } from "react";
+import { useState } from "react";
 
 const ToDo = () => {
   const [tasks, setTasks] = useState([
@@ -60,6 +60,7 @@ const ToDo = () => {
       <ol>
         {tasks.map((task, index) => (
           <li key={index}>
+            <input type="checkbox" className="checkBox"></input>
             <span className="text">{task}</span>
             <button className="delete-button" onClick={() => deleteTask(index)}>
               Delete
