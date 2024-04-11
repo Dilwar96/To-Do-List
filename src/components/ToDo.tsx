@@ -19,7 +19,7 @@ const ToDo = () => {
       <div>
         <input
           type="text"
-          placeholder="Enter a task"
+          placeholder="Enter a task..."
           value={newTask}
           onChange={(event) => setNewTask(event.target.value)}
         />
