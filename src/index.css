@@ -1,5 +1,13 @@
+html {
+    font-size: 62.5%;
+  }
+
 body{
+    
     background-color: hsl(0, 0%, 10%);
+}
+form{
+    width: 100%;
 }
 .to-do-list{
     font-family: Arial, sans-serif;
@@ -72,6 +80,3 @@ li{
     margin-left: 10px;
 }
 
-.chechBox{
-    transform: scale(2)
-}
