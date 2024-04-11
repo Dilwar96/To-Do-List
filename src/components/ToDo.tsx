@@ -17,7 +17,10 @@ const ToDo = () => {
     }
   };
 
-  const deleteTask = (task: number) => {};
+  const deleteTask = (task: number) => {
+    const updatedTasks = tasks.filter((_, i) => i !== task);
+    setTasks(updatedTasks);
+  };
 
   return (
     <div className="to-do-list">
