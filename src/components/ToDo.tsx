@@ -1,5 +1,4 @@
-import { useState } from "react";
-import moveTaskUp from "../services/moveTaskUp";
+import { useDebugValue, useState } from "react";
 import moveTaskDown from "../services/moveTaskDown";
 
 const ToDo = () => {
@@ -20,6 +19,17 @@ const ToDo = () => {
   const deleteTask = (task: number) => {
     const updatedTasks = tasks.filter((_, i) => i !== task);
     setTasks(updatedTasks);
+  };
+
+  const moveTaskUp = (task: number) => {
+    if (task > 0) {
+      const updetedTasks = [...tasks];
+      [updetedTasks[task], updetedTasks[task - 1]] = [
+        updetedTasks[task - 1],
+        updetedTasks[task],
+      ];
+      setTasks(updetedTasks);
+    }
   };
 
   return (
