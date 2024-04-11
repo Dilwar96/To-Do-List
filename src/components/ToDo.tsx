@@ -1,11 +1,7 @@
 import { useState } from "react";
 
 const ToDo = () => {
-  const [tasks, setTasks] = useState([
-    "Eat Breakfast",
-    "take a shower",
-    "walk the dog",
-  ]);
+  const [tasks, setTasks] = useState<string[]>([]);
   const [newTask, setNewTask] = useState("");
 
   const addTask = () => {
