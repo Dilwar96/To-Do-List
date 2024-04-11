@@ -1,5 +1,5 @@
 
 
-const deleteTask = (task: string) => {}
+const deleteTask = (task: number) => {}
 
 export default deleteTask;

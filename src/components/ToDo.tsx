@@ -1,98 +1,50 @@
-import {
-  background,
-  Box,
-  Button,
-  Center,
-  Heading,
-  Input,
-  InputGroup,
-  ListItem,
-  OrderedList,
-  Stack,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
 import { useState } from "react";
 import deleteTask from "../services/deleteTask";
 import moveTaskUp from "../services/moveTaskUp";
 import moveTaskDown from "../services/moveTaskDown";
+import addTask from "../services/addTask";
 
 const ToDo = () => {
-  const { onToggle } = useDisclosure();
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([
+    "Eat Breakfast",
+    "take a shower",
+    "walk the dog",
+  ]);
   const [newTask, setNewTask] = useState("");
 
   return (
-    <>
-      <Heading fontSize="4rem">To-Do-List</Heading>
-      <Center>
-        <Stack>
-          <InputGroup>
-            <Input
-              borderRadius={20}
-              placeholder="Enter a Task..."
-              variant="filled"
-              value={newTask}
-              onChange={(event) => setNewTask(event.target.value)}
-            />
-            <Button
-              transition="background-color 0.5 ease"
-              cursor="pointer"
-              borderRadius={20}
-              border="none"
-              fontWeight="bold"
-              padding="10px 20px"
-              fontSize="1.7rem"
-              onClick={() => {}}
-            >
-              Add
-            </Button>
-          </InputGroup>
-        </Stack>
-      </Center>
-      <OrderedList>
+    <div className="to-do-list">
+      <h1>To-Do-List</h1>
+
+      <div>
+        <input
+          type="text"
+          placeholder="Enter a task"
+          value={newTask}
+          onChange={(event) => setNewTask(event.target.value)}
+        />
+        <button className="add-button" onClick={addTask}>
+          Add
+        </button>
+      </div>
+
+      <ol>
         {tasks.map((task, index) => (
-          <ListItem key={index}>
-            <Text>{task}</Text>
-            <Button
-              cursor="pointer"
-              borderRadius={20}
-              border="none"
-              fontWeight="bold"
-              padding="10px 20px"
-              fontSize="1.7rem"
-              onClick={() => deleteTask}
-            >
+          <li key={index}>
+            <span className="text">{task}</span>
+            <button className="delete-button" onClick={() => deleteTask(index)}>
               Delete
-            </Button>
-            <Button
-              cursor="pointer"
-              borderRadius={20}
-              border="none"
-              fontWeight="bold"
-              padding="10px 20px"
-              fontSize="1.7rem"
-              onClick={(index) => {
-                moveTaskUp;
-              }}
-            >
+            </button>
+            <button className="move-button" onClick={() => moveTaskUp(index)}>
               Up
-            </Button>
-            <Button
-              cursor="pointer"
-              borderRadius={20}
-              border="none"
-              fontWeight="bold"
-              padding="10px 20px"
-              fontSize="1.7rem"
-              onClick={(index) => {
-                moveTaskDown;
-              }}
-            ></Button>
-          </ListItem>
+            </button>
+            <button className="move-button" onClick={() => moveTaskDown(index)}>
+              Down
+            </button>
+          </li>
         ))}
-      </OrderedList>
-    </>
+      </ol>
+    </div>
   );
 };
 

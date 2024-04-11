@@ -1,5 +1,5 @@
 
 
-const moveTaskDown = (task : string) => {}
+const moveTaskDown = (task : number) => {}
 
 export default moveTaskDown;
